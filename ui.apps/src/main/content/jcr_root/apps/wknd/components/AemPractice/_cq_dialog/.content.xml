@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="AEM Practice"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[aempractice.dialog]">>
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="The text to display on the title."
+                                                fieldLabel="Title"
+                                                required="{Boolean}true"
+                                                name="./title"/>
+                                            <imagePath
+                                                    jcr:primaryType="nt:unstructured"
+                                                    jcr:title="Image"
+                                                    sling:resourceType="/libs/granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Select an image path that will be use for the banner"
+                                                    fieldLabel="Image Path"
+                                                    name="./imagePath"
+                                                    rootPath="/content/dam/wknd"
+                                                    required="{Boolean}true"/>
+                                            
+                                            <navigationItems
+                                                    jcr:primaryType="nt:unstructured"
+                                                    jcr:title="Navigation Items"
+                                                    fieldLabel="Navigation Items"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    composite="{Boolean}true">
+                                                    <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                        name="./navigationItems">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <title
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                emptyText="Enter text here"
+                                                                fieldLabel="Title"
+                                                                required="{Boolean}true"
+                                                                name="./title"/>
+                                                            <path
+                                                                jcr:primaryType="nt:unstructured"
+                                                                jcr:title="Page Path"
+                                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/pathfield"
+                                                                fieldLabel="Page Path"
+                                                                name="./path"
+                                                                rootPath="/content/wknd"
+                                                                required="{Boolean}true"/>
+                                                        </items>
+                                                    </field>
+                                                </navigationItems>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
