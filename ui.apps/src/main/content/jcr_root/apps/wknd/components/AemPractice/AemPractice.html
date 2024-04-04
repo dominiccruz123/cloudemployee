@@ -1,6 +1,5 @@
-<sly data-sly-test.hasTitle="${properties.title}"></sly>
-    <div class="aem-practice" data-sly-use.AemPracticeModel="com.adobe.aem.wknd.core.models.AemPracticeModel"
-        data-sly-test.hasContent="${!AemPracticeModel.empty}">
+<sly data-sly-test.hasTitle="${properties.title}">
+    <div class="aem-practice" data-sly-use.AemPracticeModel="com.adobe.aem.wknd.core.models.AemPracticeModel">
         <h1>Page Title: ${currentPage.title}</h1>
         <p>Path: ${currentPage.path}</p>
 

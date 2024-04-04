@@ -1,14 +1,12 @@
 package com.adobe.aem.wknd.core.models.impl;
 
 import com.adobe.aem.wknd.core.models.AemPracticeModel;
-import jdk.internal.net.http.common.Log;
-import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-import javax.annotation.PostConstruct;
 import com.adobe.aem.wknd.core.models.dto.NavigationItem;
 import org.apache.sling.settings.SlingSettingsService;
 import org.slf4j.Logger;
@@ -16,10 +14,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 @Model(
-    adaptables = { SlingHttpServletRequest.class },
+    adaptables = { Resource.class },
     adapters = { AemPracticeModel.class },
     resourceType = { AemPracticeModelImpl.RESOURCE_TYPE },
     defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
@@ -30,9 +27,6 @@ public class AemPracticeModelImpl implements AemPracticeModel{
 
     @ChildResource(name = "navigationItems")
     private List<NavigationItem> navigationItems;
-
-    @OSGiService
-    private SlingSettingsService slingSettingsService;
 
     @ValueMapValue
     private String imagePath;
@@ -45,7 +39,6 @@ public class AemPracticeModelImpl implements AemPracticeModel{
         return imagePath;
     }
 
-    @Override
     public boolean isBackgroundImage() {
         List<String> allowedExtensions = Arrays.asList("png", "jpg", "jpeg", "gif");
         String imageExtension;
